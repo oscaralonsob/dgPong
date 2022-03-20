@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Kenney Pixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://OneFilePong.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 512, 20 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 32 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 8 )
+
+[node name="Pong" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BodyBot" type="StaticBody2D" parent="."]
+position = Vector2( 512, 580 )
+
+[node name="ColorRect" type="ColorRect" parent="BodyBot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -20.0
+margin_right = 512.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyBot"]
+shape = SubResource( 1 )
+
+[node name="BodyTop" type="StaticBody2D" parent="."]
+position = Vector2( 512, 20 )
+
+[node name="ColorRect" type="ColorRect" parent="BodyTop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -20.0
+margin_right = 512.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyTop"]
+shape = SubResource( 1 )
+
+[node name="Score_Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "0 - 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Paddle_Player1" type="KinematicBody2D" parent="."]
+position = Vector2( 20, 268 )
+
+[node name="ColorRect" type="ColorRect" parent="Paddle_Player1"]
+margin_right = 16.0
+margin_bottom = 64.0
+color = Color( 0.12549, 0, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle_Player1"]
+position = Vector2( 8, 32 )
+shape = SubResource( 3 )
+
+[node name="Paddle_Player2" type="KinematicBody2D" parent="."]
+position = Vector2( 988, 268 )
+
+[node name="ColorRect" type="ColorRect" parent="Paddle_Player2"]
+margin_right = 16.0
+margin_bottom = 64.0
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle_Player2"]
+position = Vector2( 8, 32 )
+shape = SubResource( 3 )
+
+[node name="Ball" type="KinematicBody2D" parent="."]
+position = Vector2( 500, 296 )
+
+[node name="ColorRect" type="ColorRect" parent="Ball"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 16.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2( 8, 8 )
+shape = SubResource( 4 )
