@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Kenney Pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://OneFilePong.gd" type="Script" id=2]
+[ext_resource path="res://Paddle_Player1.gd" type="Script" id=3]
+[ext_resource path="res://Paddle_Player2.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 512, 20 )
@@ -79,6 +81,7 @@ __meta__ = {
 
 [node name="Paddle_Player1" type="KinematicBody2D" parent="."]
 position = Vector2( 20, 268 )
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="Paddle_Player1"]
 margin_right = 16.0
@@ -94,6 +97,7 @@ shape = SubResource( 3 )
 
 [node name="Paddle_Player2" type="KinematicBody2D" parent="."]
 position = Vector2( 988, 268 )
+script = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="Paddle_Player2"]
 margin_right = 16.0

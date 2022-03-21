@@ -1,8 +1,6 @@
 extends Control
 
 
-const AI_SPEED : float = 280.0;
-const PLAYER_SPEED : float = 280.0;
 var ball_speed : float = 300.0;
 const BALL_SPEED_GAME_START : float = 300.0;
 const BALL_SPEED_PLAYER_BOUNCE_INCREASE : float = 20.0;
@@ -47,15 +45,13 @@ func spawn_ball():
 
 
 func update_score_label():
-	score_label.text = str(score_player) + " | " + str(score_ai);
+	score_label.text = str(score_player) + " - " + str(score_ai);
 
 
 func _physics_process(delta):
 	process_ball_movement(delta);
-	process_ai_movement(delta);
-	process_player_movement(delta);
 
-
+# TODO: we don't need to know if is player or not, just the side we are colliding with )or just change directoin maybe???)
 func process_ball_movement(delta):
 	var ball_collision_info = body_ball.move_and_collide(ball_direction * ball_speed * delta);
 	if (ball_collision_info != null and ball_collision_info.normal != Vector2.ZERO):
@@ -80,23 +76,3 @@ func process_ball_movement(delta):
 		score_player += 1;
 		update_score_label();
 		spawn_ball();
-
-func process_ai_movement(delta):
-	var ai_to_ball_dir = body_player2.global_position.direction_to(body_ball.global_position);
-	ai_to_ball_dir.x = 0;
-	if (ai_to_ball_dir.y > 0.4 or ai_to_ball_dir.y < 0.4):
-		if (ai_to_ball_dir.y > 0):
-			ai_to_ball_dir.y = 1;
-		else:
-			ai_to_ball_dir.y = -1;
-	# warning-ignore:return_value_discarded
-	body_player2.move_and_collide(ai_to_ball_dir * AI_SPEED * delta);
-
-
-func process_player_movement(delta):
-	if (Input.is_action_pressed("ui_up")):
-		# warning-ignore:return_value_discarded
-		body_player1.move_and_collide(Vector2.UP * PLAYER_SPEED * delta);
-	elif (Input.is_action_pressed("ui_down")):
-		# warning-ignore:return_value_discarded
-		body_player1.move_and_collide(Vector2.DOWN * PLAYER_SPEED * delta);
