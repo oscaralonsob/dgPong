@@ -11,12 +11,12 @@ config_version=4
 [application]
 
 config/name="gdPong"
-run/main_scene="res://game.tscn"
+run/main_scene="res://scene/game.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-EventBus="*res://EventBus.gd"
+EventBus="*res://script/EventBus.gd"
 
 [physics]
 

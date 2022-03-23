@@ -6,6 +6,7 @@ export(NodePath) var paddle_player2
 onready var pos_player1_score: float = get_node(paddle_player2).global_position.x + 30
 onready var pos_player2_score: float = get_node(paddle_player1).global_position.x - 30
 
+
 const SPEED_BOUNCE_INCREASE : float = 20.0;
 const SPEED_START : float = 300.0;
 var spawn_pos : Vector2 = Vector2.ZERO;

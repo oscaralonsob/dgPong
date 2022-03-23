@@ -1,5 +1,6 @@
 extends Label
 
+
 var score_player1: int = 0;
 var score_player2: int = 0;
 
@@ -15,4 +16,3 @@ func _scored_point(player: int) -> void:
 		score_player2 += 1
 	
 	text = str(score_player1) + " - " + str(score_player2)
-	
