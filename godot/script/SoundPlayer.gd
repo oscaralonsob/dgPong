@@ -7,5 +7,5 @@ func play_sound(sound) -> void:
 	play()
 
 
-func _remove_sef() -> void:
+func _remove_self() -> void:
 	queue_free()
