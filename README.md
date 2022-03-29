@@ -23,5 +23,4 @@ Move the rigth paddle with the arrows.
 
 Press <kbd>Space</kbd> to restart the game and swith between player 2 and IA
 
-
-The game is not deployed to be played yet, be patient.
+You can play the game [here](https://oscaralonsob.github.io/gdGames/)
